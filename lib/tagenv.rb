@@ -1,0 +1,6 @@
+require 'tagenv/version'
+require 'tagenv/constants'
+require 'tagenv/env'
+require 'tagenv/ec2/metadata'
+require 'tagenv/ec2/tag'
+require 'tagenv/cli'
