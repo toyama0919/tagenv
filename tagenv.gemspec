@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'thor'
+  gem.add_dependency 'aws-sdk', '>= 2'
 
   gem.add_development_dependency 'bundler'
   gem.add_development_dependency 'pry', '~> 0.10.1'
