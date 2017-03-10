@@ -2,9 +2,19 @@
 
 ec2 instance tag apply environment variables.
 
+## Settings
+
+```sh
+export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXX
+export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+export AWS_REGION=ap-northeast-1
+```
+
+* support environment variables and iam role.
+
 ## Examples
 
-```
+```ruby
 require 'tagenv'
 
 Tagenv::Env.load(prefix: 'EC2TAG_')
@@ -17,19 +27,31 @@ p ENV
 
 Add this line to your application's Gemfile:
 
-    gem 'tagenv'
+```sh
+gem 'tagenv'
+```
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install tagenv
+```sh
+$ gem install tagenv
+```
 
 ## Synopsis
 
-    $ tagenv
+```sh
+$ tagenv
+```
+
+## Future
+
+* Support provider GCP.
 
 ## Contributing
 
@@ -45,9 +67,3 @@ Or install it yourself as:
 * [Issues](https://github.com/toyama0919/tagenv/issues)
 * [Documentation](http://rubydoc.info/gems/tagenv/frames)
 * [Email](mailto:toyama0919@gmail.com)
-
-## Copyright
-
-Copyright (c) 2017 toyama0919
-
-See [LICENSE.txt](../LICENSE.txt) for details.
