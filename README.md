@@ -17,10 +17,17 @@ export AWS_REGION=ap-northeast-1
 ```ruby
 require 'tagenv'
 
-Tagenv::Env.load(prefix: 'EC2TAG_')
+Tagenv.load(prefix: 'EC2TAG_')
 
 p ENV
-# {"EC2TAG_Group"=>"group_a", "EC2TAG_Roles"=>"front", "EC2TAG_Stages"=>"staging", "EC2TAG_Name"=>"feweb07", "EC2TAG_Project"=>"project_a"}
+# {
+#   "EC2TAG_Group"=>"group_a",
+#   "EC2TAG_Roles"=>"front",
+#   "EC2TAG_Stages"=>"staging",
+#   "EC2TAG_Name"=>"app01",
+#   "EC2TAG_Project"=>"project_a"
+#   ....
+# }
 ```
 
 ## Installation
