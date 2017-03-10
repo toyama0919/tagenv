@@ -1,9 +1,13 @@
 module Tagenv
   class Env
-    def self.load(prefix: '', instance_id: nil)
-      @ec2_tag = Ec2::Tag.new
-      instance_id = instance_id || Ec2::Metadata.get_instance_id
-      tag_hash = @ec2_tag.instances_tag_with_id(instance_id)
+    def self.load(prefix: '', instance_id: nil, provider: 'ec2')
+      tag_hash = {}
+      if provider == 'ec2'
+        @ec2_tag = Ec2::Tag.new
+        tag_hash = @ec2_tag.get_tag_hash(instance_id)
+      else
+        raise "Unsupport provider [#{provider}]"
+      end
       tag_hash.each do |k, v|
         ENV[prefix + k] = v
       end

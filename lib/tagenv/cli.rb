@@ -14,11 +14,13 @@ module Tagenv
     desc 'load', 'load'
     option :prefix, aliases: '-p', default: 'EC2TAG_',type: :string, desc: 'prefix'
     option :instance_id, aliases: '-i', type: :string, desc: 'instance_id'
+    option :provider, type: :string, desc: 'provider'
     option :print, aliases: '-P', type: :boolean, desc: 'print'
     def load
       Tagenv::Env.load(
         prefix: options[:prefix],
-        instance_id: options[:instance_id]
+        instance_id: options[:instance_id],
+        provider: options[:provider]
       )
       p ENV if options[:print]
     end

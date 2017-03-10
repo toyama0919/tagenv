@@ -9,14 +9,19 @@ module Tagenv
         @ec2 = Aws::EC2::Client.new(region: region)
       end
 
+      def get_tag_hash(instance_id)
+        instance_id = instance_id || Metadata.get_instance_id
+        instances_tag_with_id(instance_id)
+      end
+
       def instances_tag_with_id(instance_id)
         tags = @ec2.describe_instances(
           instance_ids: [instance_id]
         ).data.to_h[:reservations].map { |instance| instance[:instances].first }.first[:tags]
-        get_tag_hash(tags)
+        convert_tag_hash(tags)
       end
 
-      def get_tag_hash(tags)
+      def convert_tag_hash(tags)
         result = {}
         tags.each {|hash|
           result[hash['key'] || hash[:key]] = hash['value'] || hash[:value]
