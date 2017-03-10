@@ -12,6 +12,4 @@ gemfile:
 os:
   - linux
 
-before_install: gem update bundler
-
 script: 'bundle exec rake spec'

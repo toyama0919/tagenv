@@ -1,4 +1,5 @@
 require 'aws-sdk'
+require_relative 'tag_util'
 
 module Tagenv
   module Ec2
@@ -20,15 +21,7 @@ module Tagenv
         tags = @ec2.describe_instances(
           instance_ids: [instance_id]
         ).data.to_h[:reservations].map { |instance| instance[:instances].first }.first[:tags]
-        convert_tag_hash(tags)
-      end
-
-      def convert_tag_hash(tags)
-        result = {}
-        tags.each {|hash|
-          result[hash['key'] || hash[:key]] = hash['value'] || hash[:value]
-        }
-        result
+        TagUtil.convert_tag_hash(tags)
       end
     end
   end

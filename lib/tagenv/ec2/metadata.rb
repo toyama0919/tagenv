@@ -1,10 +1,13 @@
 require 'logger'
 require 'open-uri'
 require 'json'
+require "timeout"
 
 module Tagenv
   module Ec2
     class Metadata
+      TIME_OUT = 3
+
       def self.get_metadata(path)
         begin
           result = {}
@@ -13,7 +16,7 @@ module Tagenv
             return body
           }
           return result
-        rescue Timeout::Error => e
+        rescue ::Timeout::Error => e
           raise "not EC2 instance"
         end
       end
