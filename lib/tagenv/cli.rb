@@ -17,7 +17,7 @@ module Tagenv
     option :provider, type: :string, default: 'ec2', desc: 'provider'
     option :print, aliases: '-P', type: :boolean, desc: 'print'
     def load
-      Tagenv::Env.load(
+      Tagenv.load(
         prefix: options[:prefix],
         instance_id: options[:instance_id],
         provider: options[:provider]
