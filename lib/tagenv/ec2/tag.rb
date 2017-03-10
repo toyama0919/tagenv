@@ -14,6 +14,8 @@ module Tagenv
         instances_tag_with_id(instance_id)
       end
 
+      private
+
       def instances_tag_with_id(instance_id)
         tags = @ec2.describe_instances(
           instance_ids: [instance_id]
