@@ -5,7 +5,7 @@ describe Tagenv::CLI do
   before do
   end
 
-  it "should stdout sample" do
+  it "should stdout help" do
     output = capture_stdout do
       Tagenv::CLI.start(['help'])
     end
@@ -14,9 +14,11 @@ describe Tagenv::CLI do
 
   it "include" do
     output = capture_stdout do
-      Tagenv::CLI.start(['help', 'sample'])
+      Tagenv::CLI.start(['help', 'load'])
     end
-    expect(output).to include('--fields')
+    expect(output).to include('--provider')
+    expect(output).to include('--instance-id')
+    expect(output).to include('--prefix')
   end
 
   after do
