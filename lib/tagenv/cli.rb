@@ -14,7 +14,7 @@ module Tagenv
     desc 'load', 'load'
     option :prefix, aliases: '-p', default: 'EC2TAG_',type: :string, desc: 'prefix'
     option :instance_id, aliases: '-i', type: :string, desc: 'instance_id'
-    option :provider, type: :string, desc: 'provider'
+    option :provider, type: :string, default: 'ec2', desc: 'provider'
     option :print, aliases: '-P', type: :boolean, desc: 'print'
     def load
       Tagenv::Env.load(
