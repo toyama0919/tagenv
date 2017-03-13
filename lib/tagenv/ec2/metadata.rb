@@ -8,6 +8,17 @@ module Tagenv
     class Metadata
       TIME_OUT = 3
 
+      def self.ec2?
+        begin
+          ::Timeout.timeout(TIME_OUT) {
+            open('http://169.254.169.254/latest/meta-data/instance-id').read
+            return true
+          }
+        rescue => e
+          return false
+        end
+      end
+
       def self.get_metadata(path)
         begin
           result = {}
