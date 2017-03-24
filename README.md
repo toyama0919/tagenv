@@ -1,4 +1,4 @@
-# tagenv [![Build Status](https://secure.travis-ci.org/toyama0919/tagenv.png?branch=master)](http://travis-ci.org/toyama0919/tagenv)
+# tagenv [![Build Status](https://secure.travis-ci.org/toyama0919/tagenv.png?branch=master)](http://travis-ci.org/toyama0919/tagenv) [![Gem Version](https://badge.fury.io/rb/tagenv.svg)](http://badge.fury.io/rb/tagenv)
 
 ec2 instance tag apply environment variables.
 
