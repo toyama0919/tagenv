@@ -10,7 +10,7 @@ module Tagenv
         @ec2 = Aws::EC2::Client.new(region: region)
       end
 
-      def get_tag_hash(instance_id)
+      def get_tag_hash(instance_id: nil)
         instance_id = instance_id || Metadata.get_instance_id
         instances_tag_with_id(instance_id)
       end
