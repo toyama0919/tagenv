@@ -14,7 +14,7 @@ module Tagenv
       raise "Unsupport provider [#{provider}]"
     end
     tag_hash.each do |k, v|
-      ENV[prefix + k] = v
+      ENV[k] = v
     end
   end
 end
