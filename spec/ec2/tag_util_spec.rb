@@ -11,7 +11,7 @@ describe Tagenv::Ec2::Tag do
       { key: 'Stages', value: 'production' }
     ]
     expect_value = { 'Name' => 'app01', 'Stages' => 'production' }
-    expect(Ec2::TagUtil.convert_tag_hash(aws_tag_format)).to(eq(expect_value))
+    expect(Ec2::TagUtil.convert_tag_hash('', aws_tag_format)).to(eq(expect_value))
   end
 
   it "convert_tag_hash_2" do
@@ -20,7 +20,7 @@ describe Tagenv::Ec2::Tag do
       { 'key' => 'Stages', 'value' => 'production' }
     ]
     expect_value = { 'Name' => 'app01', 'Stages' => 'production' }
-    expect(Ec2::TagUtil.convert_tag_hash(aws_tag_format)).to(eq(expect_value))
+    expect(Ec2::TagUtil.convert_tag_hash('', aws_tag_format)).to(eq(expect_value))
   end
 
   after do
