@@ -9,7 +9,7 @@ module Tagenv
     tag_hash = {}
     if provider == 'ec2'
       @ec2_tag = Ec2::Tag.new(prefix: prefix, instance_id: instance_id)
-      tag_hash = @ec2_tag.get_tag_hash(instance_id)
+      tag_hash = @ec2_tag.get_tag_hash
     else
       raise "Unsupport provider [#{provider}]"
     end
